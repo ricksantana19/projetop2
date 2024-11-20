@@ -1,0 +1,9 @@
+.table tbody tr {
+    line-height: 1; /* Reduz o espaçamento vertical */
+    height: 50px; /* Define uma altura mínima para as linhas */
+}
+
+.table td, .table th {
+    vertical-align: middle; /* Centraliza o conteúdo verticalmente */
+    white-space: nowrap; /* Evita quebra de texto */
+}
