@@ -5,7 +5,7 @@ require_once('conexao.php');
 $categoria = [];
 
 if (!isset($_GET['id_categoria']) || empty($_GET['id_categoria'])) {
-    header('Location: index.php');
+    header('Location: lista.php');
 } else {
     $id = mysqli_real_escape_string($conn, $_GET['id_categoria']);
     $sql = "SELECT * FROM categorias WHERE id_categoria = '{$id_categoria}'";
@@ -38,7 +38,7 @@ if (!isset($_GET['id_categoria']) || empty($_GET['id_categoria'])) {
                 <input type="hidden" name="id_categoria" value="<?= $categoria['id_categoria']; ?>">
                 <div class="card mb-4">
                     <div class="card-body">
-                        <table class="table table-striped">
+                        <table class="table table-bordered table-striped">
                             <div class="mb-3">
                                 <label for="nome_categoria" class="form-label">Nome da Categoria</label>
                                 <input type="text" id="nome_categoria" name="nome_categoria" class="form-control"  value="<?= $categoria['nome_categoria'] ?>"required>

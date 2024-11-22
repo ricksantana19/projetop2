@@ -1,9 +1,13 @@
-.table tbody tr {
-    line-height: 1; /* Reduz o espaçamento vertical */
-    height: 50px; /* Define uma altura mínima para as linhas */
+.table {
+    width: 60%; /* Define a largura da tabela (ajuste o valor conforme necessário) */
+    margin: 0%; /* Centraliza a tabela */
+    font-size: 14px; /* Diminui o tamanho do texto */
 }
 
 .table td, .table th {
-    vertical-align: middle; /* Centraliza o conteúdo verticalmente */
-    white-space: nowrap; /* Evita quebra de texto */
+    padding: 8px; /* Reduz o espaçamento interno das células */
+}
+
+.table mb-4{
+    width: 10%;
 }

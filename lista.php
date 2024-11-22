@@ -15,6 +15,8 @@ $categorias = mysqli_query($conn, $sql);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Controle de Finanças - Categorias</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 
 <body>
@@ -27,41 +29,39 @@ $categorias = mysqli_query($conn, $sql);
         </div>
 
         <div class="card mb-4">
-            <?php foreach ($categorias as $categoria): ?>
-                <div class="card-body">
-                    <table class="table table-bordered tablestriped">
-                        <thead>
-                            <tr>
-                                <th>Nº</th>
-                                <th>Categoria</th>
-                                <th class="text-center" >Ações</th>
-                            <tr>
-                        </thead>
-
-                        <tbody>
+            <div class="card-body">
+                <table class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th>Nº</th>
+                            <th>Categoria</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($categorias as $categoria): ?>
                             <tr>
                                 <td><?php echo $categoria['numero_categoria']; ?></td>
                                 <td><?php echo $categoria['nome_categoria']; ?></td>
                                 <td>
-                                    <div class="aling-items-center gap-2 ">
+                                    <div class="d-flex align-items-center gap-2">
                                         <a href="edit_categoria.php?id=<?= $categoria['id_categoria'] ?>" class="btn btn-warning btn-sm">
                                             <i class="bi bi-pencil-fill"></i> Editar
                                         </a>
                                         <form action="acoes_categoria.php" method="POST" class="d-inline">
-                                            <button onclick="return confirm('Excluir categoria ?')" name="delete_categoria" type="submit" value="<?= $categoria['id_categoria']; ?>" class="btn btn-danger btn-sm">
+                                            <button onclick="return confirm('Excluir categoria?')" name="delete_categoria" type="submit" value="<?= $categoria['id_categoria']; ?>" class="btn btn-danger btn-sm">
                                                 <i class="bi bi-trash-fill"></i> Excluir
                                             </button>
                                         </form>
                                     </div>
                                 </td>
                             </tr>
-                        </tbody>
-                    </table>
-
-                    </table>
-                </div>
-            <?php endforeach ?>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+            </div>
         </div>
+
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
