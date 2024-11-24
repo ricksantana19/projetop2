@@ -15,11 +15,11 @@ require_once('conexao.php');
 
 
 <body>
-    <div class="container mt-5">
+    <div class="container mt-5" style="max-width: 800px; margin: 0 auto;">
         <h1 class="mb-4">Cadastro de Categorias</h1>
         <div class="card mb-4">
             <form action="acoes_categoria.php" method="POST">
-                <div class="card-header">Cadastrar Categoria</div>
+                <div class="card-header fw-bold">Cadastrar Categoria</div>
                 <div class="card-body">
                     <div class="mb-3">
                         <label for="nome_categoria" class="form-label">Nome da Categoria</label>
@@ -30,6 +30,7 @@ require_once('conexao.php');
                         <input type="number" id="numero_categoria" name="numero_categoria" class="form-control" required>
                     </div>
                     <button type="submit" name="create_categoria" class="btn btn-primary">Salvar</button>
+                    <a href="lista.php" class="btn btn-danger float-end">Voltar</a>
                 </div>
             </form>
         </div>

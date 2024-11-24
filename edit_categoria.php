@@ -7,8 +7,8 @@ $categoria = [];
 if (!isset($_GET['id_categoria']) || empty($_GET['id_categoria'])) {
     header('Location: lista.php');
 } else {
-    $id = mysqli_real_escape_string($conn, $_GET['id_categoria']);
-    $sql = "SELECT * FROM categorias WHERE id_categoria = '{$id_categoria}'";
+    $id_categoria = mysqli_real_escape_string($conn, $_GET['id_categoria']);
+    $sql = "SELECT * FROM lista_categoria WHERE id_categoria = '{$id_categoria}'";
     $query = mysqli_query($conn, $sql);
 
     if (mysqli_num_rows($query) > 0) {
@@ -31,24 +31,23 @@ if (!isset($_GET['id_categoria']) || empty($_GET['id_categoria'])) {
 </head>
 
 <body>
-    <div class="container mt-5">
+    <div class="container mt-5" style="max-width: 800px; margin: 0 auto;">
         <h1 class="mb-4">Edição da Categoria</h1>
         <?php if (!empty($categoria)): ?>
             <form action="acoes_categoria.php" method="POST">
                 <input type="hidden" name="id_categoria" value="<?= $categoria['id_categoria']; ?>">
-                <div class="card mb-4">
+                <div class="card mb-4 border border-dark">
                     <div class="card-body">
-                        <table class="table table-bordered table-striped">
-                            <div class="mb-3">
-                                <label for="nome_categoria" class="form-label">Nome da Categoria</label>
-                                <input type="text" id="nome_categoria" name="nome_categoria" class="form-control"  value="<?= $categoria['nome_categoria'] ?>"required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="numero_categoria" class="form-label">Número da Categoria</label>
-                                <input type="number" id="numero_categoria" name="numero_categoria" class="form-control"  value="<?= $categoria['numero_categoria'] ?>"required>
-                            </div>
-                            <button type="submit" class="btn btn-primary">Salvar</button>
-                        </table>
+                        <div class="mb-3">
+                            <label for="nome_categoria" class="form-label">Nome da Categoria</label>
+                            <input type="text" id="nome_categoria" name="nome_categoria" class="form-control" value="<?= $categoria['nome_categoria'] ?>" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="numero_categoria" class="form-label">Número da Categoria</label>
+                            <input type="number" id="numero_categoria" name="numero_categoria" class="form-control" value="<?= $categoria['numero_categoria'] ?>" required>
+                        </div>
+                        <button type="submit" name="edit_categoria" class="btn btn-primary">Editar categoria</button>
+                        <a href="lista.php" class="btn btn-danger float-end">Voltar</a>
                     </div>
                 </div>
             </form>
@@ -61,4 +60,5 @@ if (!isset($_GET['id_categoria']) || empty($_GET['id_categoria'])) {
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>

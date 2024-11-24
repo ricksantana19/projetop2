@@ -41,7 +41,7 @@ if (isset($_POST['edit_categoria'])) {
     $nome_categoria = mysqli_real_escape_string($conn, $_POST['nome_categoria']);
     $numero_categoria = mysqli_real_escape_string($conn, $_POST['numero_categoria']);
 
-    $sql = "UPDATE lista_categoria SET nome_categoria = '{$nome_categoria}', numero_categoria = '{$numero_categoria} WHERE id = '{$id_categoria}'";
+    $sql = "UPDATE lista_categoria SET nome_categoria = '{$nome_categoria}', numero_categoria = '{$numero_categoria}' WHERE id_categoria = '{$id_categoria}'";
 
     if (mysqli_query($conn, $sql)) {
         if (mysqli_affected_rows($conn) > 0) {
@@ -56,7 +56,7 @@ if (isset($_POST['edit_categoria'])) {
         $_SESSION['type'] = 'error';
     }
 
-    header("Location: index.php");
+    header("Location: lista.php");
     exit;
 }
 
